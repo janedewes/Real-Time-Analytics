@@ -1,0 +1,58 @@
+Spark MLLib - Sistema de Recomendação - Filtragem Colaborativa
+
+
+Descrição
+
+- Também chamado de filtros colaborativos.
+- Analisa dados passados para compreender comportamentos de pessoas/entidades.
+- A recomendação é feita por similaridade de comportamento.
+- Recomendação baseada em usuários ou items.
+- Algoritmos de Recomendação esperam receber os dados em um formato específico: [user_ID, item_ID, score].
+- Score, também chamado rating, indica a preferência de um usuário sobre um item. Podem ser valores booleanos, ratings ou mesmo volume de vendas.
+
+
+- O sistema de recomendação é alimentado com um grande volume de dados, onde a empresa coleta os dados, armazena em um cluster
+rodando com Hadoop HDFS, para armazenamento distribuído por exemplo, é criado um algoritmo de recomendacão para então processar 
+os dados de forma distribuída e paralela usando o Apache Spark. 
+
+-----------------------------------------------------------------------
+
+Algoritmo
+
+- Algoritmo para sistema de recomendacão do Spark: ALS (Alternating Least Squares)
+Ele otimiza a loss function (funcao de perda, é a fc que calcula a taxa de erros do modelo) e funciona muito bem em ambientes 
+paralelizados. 
+
+
+OBS: Nem todo algoritmo funciona bem em ambiente distribuído (paralelizado)
+-----------------------------------------------------------------------
+
+Dados
+
+- O conjunto de dados coletados é composto de:
+user -> id (unico)
+item -> cód do produto (unico)
+rating -> (medida) quanto o usuário esta disposto a comprar o produto 
+
+Esses dados podem ser coletados com base em cliques, acessos, etc.
+
+
+- Com os dados podemos alimentar um algoritmo para fazer o treinamento e assim prever qual a propensão do usuário comprar outros 
+produtos. 
+Ou seja, sabendo o que o usuario já comprou/acessou no passado, PREVER o que ele poderá comprar/acessar no futuro. 
+
+- Criar, treinar e avaliar o modelo!
+-----------------------------------------------------------------------
+
+
+Modelo 
+
+- Cálculo do Affinity Score: indica o score, ou seja, a probabilidade do usuário comprar cada um dos produtos dentro do conjunto 
+de dados.
+
+
+Teste com usuarios e itens para rating:
+- Usuario: 1001
+- Produtos: 9003, 9004, 9005 (produtos que o usuario ainda nao comprou)  
+
+PREVER se o usuário 1001 está propenso a comprar os produtos 9003, 9004 e 9005.

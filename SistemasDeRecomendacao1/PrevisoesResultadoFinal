@@ -1,0 +1,30 @@
+Previsoes 
+
+
+Teste com usuarios e itens para rating:
+- Usuario: 1001
+- Produtos: 9003, 9004, 9005 (produtos que o usuario ainda nao comprou)  
+
+PREVER se o usuário 1001 está propenso a comprar os produtos 9003, 9004 e 9005.
+
+-------------------------------------------------------------------------------
+
+
+Resultado:
+
+[Row(user=1001, item=9004, prediction=-0.6660881042480469),
+ Row(user=1001, item=9005, prediction=-2.7070765495300293),
+ Row(user=1001, item=9003, prediction=9.008316993713379)]
+
+
+-------------------------------------------------------------------------------
+
+Concluão:
+
+Affinity Score -> negativo - Provavel que ele nao compre.
+Affinity Score -> positvo - Deve ser oferecido ao usuario.
+Quanto maior o Affinity Score, maior a probabilidade do usuário aceitar uma recomendação. 
+
+
+Com base nessas informacões, é possível desenvolver uma aplicacão web para ofertar ao usuário apenas produtos cujo Affinity 
+Score fosse positivo, e ainda, acima de um determinado valor, se necessário. 
